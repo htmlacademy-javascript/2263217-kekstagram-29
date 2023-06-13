@@ -2,6 +2,10 @@ function checkStringLength (str, maxLength) {
   return str.length <= maxLength;
 }
 
+checkStringLength('проверяемая строка', 20);
+checkStringLength('проверяемая строка', 18);
+checkStringLength('проверяемая строка', 10);
+
 function checkStringPalindrome (str) {
   let normalizedStr = str.replaceAll(' ', '');
   normalizedStr = normalizedStr.toLowerCase();
@@ -14,6 +18,11 @@ function checkStringPalindrome (str) {
 
   return reverseStr === normalizedStr;
 }
+
+checkStringPalindrome('топот');
+checkStringPalindrome('ДовОд');
+checkStringPalindrome('Кекс');
+checkStringPalindrome('Лёша на полке клопа нашёл ');
 
 function extractDigits (value) {
 // цикл — для перебора полученной строки,
@@ -32,3 +41,7 @@ function extractDigits (value) {
   }
   return parseInt(newStr, 10);
 }
+
+extractDigits(2023);
+extractDigits(-1);
+extractDigits(1.5);
