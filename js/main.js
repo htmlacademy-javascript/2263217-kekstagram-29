@@ -74,3 +74,4 @@ const createDescriptionImage = () => {
 
 // Создаёт массив объектов-фото
 const getImages = (numOfImages = 25) => Array.from({length: numOfImages}, createDescriptionImage);
+getImages();
