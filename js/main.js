@@ -21,20 +21,24 @@ const USEDCOMMENTIDS = [];
 
 // Создаёт рандомное число и возвращает
 const getRandomInteger = (min, max) => {
-  const lower = Math.ceil(Math.min(min, max));
-  const upper = Math.floor(Math.max(min, max));
-  const result = Math.random() * (upper - lower + 1) + lower;
+  const result = Math.random() * (max - min + 1) + min;
 
   return Math.floor(result);
 };
 
+const getRandomId = (usedIds) => {
+  let Id = getRandomInteger(1, 1000);
+  while (usedIds.includes(Id)) {
+    Id = getRandomInteger(1, 1000);
+  }
+  usedIds.push(Id);
+
+  return Id;
+};
+
 // Создаёт рандомный объект-комментарий
 const createComment = () => {
-  let commentId = getRandomInteger(1, 1000);
-  while (USEDCOMMENTIDS.includes(commentId)) {
-    commentId = getRandomInteger(1, 1000);
-  }
-  USEDCOMMENTIDS.push(commentId);
+  const commentId = getRandomId(USEDCOMMENTIDS);
 
   return {
     id: commentId,
@@ -57,11 +61,7 @@ const generateCommentsArray = (quantity) => {
 
 // Создаёт рандомный объект-фото
 const createDescriptionImage = () => {
-  let id = getRandomInteger(1, 25);
-  while (USEDIMAGEIDS.includes(id)) {
-    id = getRandomInteger(1, 25);
-  }
-  USEDIMAGEIDS.push(id);
+  const id = getRandomId(USEDIMAGEIDS);
 
   return {
     id: id,
@@ -73,4 +73,4 @@ const createDescriptionImage = () => {
 };
 
 // Создаёт массив объектов-фото
-const IMAGES = Array.from({length: 25}, createDescriptionImage);
+const getImages = (numOfImages = 25) => Array.from({length: numOfImages}, createDescriptionImage);
