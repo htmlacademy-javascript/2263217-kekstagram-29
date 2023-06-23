@@ -1,3 +1,4 @@
+// Домашнее задание 2.29 "Нужно больше функций"
 function checkStringLength(str, maxLength) {
   return str.length <= maxLength;
 }
