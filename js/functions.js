@@ -43,7 +43,6 @@ extractDigits('Фестиваль -20.23');
 
 // Домашнее задание 5.16. "Функции возвращаются"
 const convertToMinutes = (time) => {
-
   const [hours, minutes] = time.split(':');
 
   return parseInt(hours, 10) * 60 + parseInt(minutes, 10);
