@@ -4,14 +4,14 @@ const getRandomInteger = (min, max) => {
   return Math.floor(result);
 };
 
-const getRandomId = (usedIds) => {
-  let Id = getRandomInteger(1, 1000);
-  while (usedIds.includes(Id)) {
-    Id = getRandomInteger(1, 1000);
+const getRandomId = (usedIds, count) => {
+  let id = getRandomInteger(1, count);
+  while (usedIds.includes(id)) {
+    id = getRandomInteger(1, count);
   }
-  usedIds.push(Id);
+  usedIds.push(id);
 
-  return Id;
+  return id;
 };
 
 export {getRandomInteger, getRandomId};

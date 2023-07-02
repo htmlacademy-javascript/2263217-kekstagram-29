@@ -21,7 +21,7 @@ const TEXT = [
 const USEDCOMMENTIDS = [];
 
 const createComment = () => {
-  const commentId = getRandomId(USEDCOMMENTIDS);
+  const commentId = getRandomId(USEDCOMMENTIDS, 1000);
 
   return {
     id: commentId,

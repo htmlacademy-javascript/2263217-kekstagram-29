@@ -5,8 +5,7 @@ const USEDIMAGEIDS = [];
 
 // Создаёт рандомный объект-фото
 const createDescriptionImage = () => {
-  const id = getRandomId(USEDIMAGEIDS);
-
+  const id = getRandomId(USEDIMAGEIDS, 25);
   return {
     id: id,
     url: `photos/${id}.jpg`,
@@ -17,6 +16,6 @@ const createDescriptionImage = () => {
 };
 
 // Создаёт массив объектов-фото
-const getImages = (numOfImages = 25) => Array.from({length: numOfImages}, createDescriptionImage);
+const getImages = (numOfImages) => Array.from({length: numOfImages}, createDescriptionImage);
 
 export {getImages};
