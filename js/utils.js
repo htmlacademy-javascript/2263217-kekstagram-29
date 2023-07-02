@@ -5,13 +5,13 @@ const getRandomInteger = (min, max) => {
 };
 
 const getRandomId = (usedIds, count) => {
-  let Id = getRandomInteger(1, count);
-  while (usedIds.includes(Id)) {
-    Id = getRandomInteger(1, count);
+  let id = getRandomInteger(1, count);
+  while (usedIds.includes(id)) {
+    id = getRandomInteger(1, count);
   }
-  usedIds.push(Id);
+  usedIds.push(id);
 
-  return Id;
+  return id;
 };
 
 export {getRandomInteger, getRandomId};
