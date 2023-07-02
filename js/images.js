@@ -5,7 +5,7 @@ const USEDIMAGEIDS = [];
 
 // Создаёт рандомный объект-фото
 const createDescriptionImage = () => {
-  const id = getRandomId(USEDIMAGEIDS);
+  const id = getRandomId(USEDIMAGEIDS, 1000);
 
   return {
     id: id,
