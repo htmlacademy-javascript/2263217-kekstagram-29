@@ -42,10 +42,12 @@ function extractDigits(value) {
 extractDigits('Фестиваль -20.23');
 
 // Домашнее задание 5.16. "Функции возвращаются"
+const minutesInHour = 60;
+
 const convertToMinutes = (time) => {
   const [hours, minutes] = time.split(':');
 
-  return parseInt(hours, 10) * 60 + parseInt(minutes, 10);
+  return parseInt(hours, 10) * minutesInHour + parseInt(minutes, 10);
 };
 
 const checkMeetingTime = (workDayStart, workDayEnd, meetingStartTime, meetingDuration) => {
