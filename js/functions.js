@@ -40,3 +40,24 @@ function extractDigits(value) {
 }
 
 extractDigits('Фестиваль -20.23');
+
+// Домашнее задание 5.16. "Функции возвращаются"
+const minutesInHour = 60;
+
+const convertToMinutes = (time) => {
+  const [hours, minutes] = time.split(':');
+
+  return parseInt(hours, 10) * minutesInHour + parseInt(minutes, 10);
+};
+
+const checkMeetingTime = (workDayStart, workDayEnd, meetingStartTime, meetingDuration) => {
+  const meetingEndTime = convertToMinutes(meetingStartTime) + meetingDuration;
+
+  return convertToMinutes(meetingStartTime) >= convertToMinutes(workDayStart) && meetingEndTime <= convertToMinutes(workDayEnd);
+};
+
+checkMeetingTime('08:00', '17:30', '14:00', 90);
+checkMeetingTime('8:0', '10:0', '8:0', 120);
+checkMeetingTime('08:00', '14:30', '14:00', 90);
+checkMeetingTime('14:00', '17:30', '08:0', 90);
+checkMeetingTime('8:00', '17:30', '08:00', 900);
