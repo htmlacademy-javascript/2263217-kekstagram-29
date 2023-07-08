@@ -3,11 +3,6 @@ import { images } from './thumbnails.js';
 const body = document.body;
 const pictures = document.querySelectorAll('.picture');
 const bigPicture = document.querySelector('.big-picture');
-const bigImage = document.querySelector('.big-picture__img').querySelector('img');
-const socialCaption = document.querySelector('.social__caption');
-const likesCount = document.querySelector('.likes-count');
-const commentsCount = document.querySelector('.comments-count');
-const socialComments = document.querySelector('.social__comments');
 const socialCommentsCount = document.querySelector('.social__comment-count');
 const commentsLoader = document.querySelector('.comments-loader');
 
@@ -20,8 +15,8 @@ const createCommentElement = (comment) => {
   commentPicture.classList.add('social__picture');
   commentPicture.src = comment.avatar;
   commentPicture.alt = comment.name;
-  commentPicture.width = 35;
-  commentPicture.height = 35;
+  commentPicture.style.setProperty('width', '35px');
+  commentPicture.style.setProperty('height', '35px');
 
   const commentText = document.createElement('p');
   commentText.classList.add('social__text');
@@ -35,11 +30,20 @@ const createCommentElement = (comment) => {
 
 // Функция добавления данных для модалки
 const insertImage = (imageData) => {
+  const bigImage = document.querySelector('.big-picture__img').querySelector('img');
   bigImage.src = imageData.url;
   bigImage.alt = imageData.description;
+
+  const socialCaption = document.querySelector('.social__caption');
   socialCaption.textContent = imageData.description;
+
+  const likesCount = document.querySelector('.likes-count');
   likesCount.textContent = imageData.likes;
+
+  const socialComments = document.querySelector('.social__comments');
   socialComments.innerHTML = '';
+
+  const commentsCount = document.querySelector('.comments-count');
   commentsCount.textContent = imageData.comments.length;
 
   imageData.comments.forEach((comment) => {
@@ -65,13 +69,14 @@ const openImage = (imagesData) => {
       closeButton.addEventListener('click', toggleModal);
 
       document.addEventListener('keydown', (evt) => {
-        if (evt.key === 'Escape') {
-          evt.preventDefault();
-          bigPicture.classList.add('hidden');
-          body.classList.remove('modal-open');
-          socialCommentsCount.classList.add('hidden');
-          commentsLoader.classList.add('hidden');
+        if (evt.key !== 'Escape') {
+          return;
         }
+        evt.preventDefault();
+        bigPicture.classList.add('hidden');
+        body.classList.remove('modal-open');
+        socialCommentsCount.classList.add('hidden');
+        commentsLoader.classList.add('hidden');
       });
     });
   });
