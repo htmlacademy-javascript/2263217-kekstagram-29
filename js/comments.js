@@ -31,14 +31,6 @@ const createComment = () => {
   };
 };
 
-const generateCommentsArray = (quantity) => {
-  const COMMENTS = [];
-
-  for (let i = 0; i < quantity; i++) {
-    COMMENTS.push(createComment());
-  }
-
-  return COMMENTS;
-};
+const generateCommentsArray = (quantity) => Array.from({ length: quantity }, createComment);
 
 export {generateCommentsArray};

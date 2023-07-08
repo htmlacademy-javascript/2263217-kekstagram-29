@@ -1,3 +1,3 @@
-import {getImages} from './images.js';
+import {generateImagesArray} from './images.js';
 
-getImages();
+generateImagesArray();

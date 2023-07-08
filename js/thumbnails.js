@@ -1,6 +1,8 @@
-import {getImages} from './images.js';
+import { generateImagesArray } from './images.js';
 
-const appendImages = (images) => {
+const images = generateImagesArray(25);
+
+const appendImages = () => {
   const pictures = document.querySelector('.pictures');
   const fragment = document.createDocumentFragment();
   const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
@@ -19,4 +21,6 @@ const appendImages = (images) => {
   pictures.append(fragment);
 };
 
-appendImages(getImages(25));
+appendImages();
+
+export {images};
